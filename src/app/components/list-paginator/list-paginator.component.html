@@ -1,0 +1,5 @@
+<section class="pagination">
+    <a class="prev btn" (click)="prev()" *ngIf="currentPage - 1">Previous</a>
+    <span>Current Page : {{ currentPage }}</span>
+    <a class="next btn" (click)="next()" *ngIf="totalPages! - currentPage">Next</a>
+</section>

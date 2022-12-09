@@ -1,0 +1,28 @@
+<ul *ngIf="locations?.length; else noLocation" class="locations-list">
+    <li *ngFor="let location of locations">
+        <div class="flex-container">
+            <img class="location-image" [src]="location.image.base64 || './assets/images/default-image.svg'" alt="">
+            <span>{{ location.name }}</span>
+            <p>Type<span>{{ location.type }}</span></p>
+            <p>Location's LetLng:<span>{{ location.location }}</span></p>
+        </div>
+
+        <div>
+            <a [routerLink]="'/locations/' + location.id + '/edit'" class="btn" style="margin-right: .375rem;">Edit</a>
+            <button (click)="removeLocation(location.id)">Remove From Map</button>
+        </div>
+    </li>
+</ul>
+
+<app-list-paginator
+    *ngIf="locations?.length"
+    [currentPage]="currentPage" 
+    [totalPages]="totalPages" 
+    (nextPage)="next()" 
+    (prevPage)="prev()">
+</app-list-paginator>
+
+<ng-template #noLocation>
+    <p class="no-location-text">You did'nt add a location yet!</p>
+</ng-template>
+

@@ -1,0 +1,39 @@
+#header {
+    height: 80px;
+    width: 100%;
+    background: var(--primary-darker-color);
+    background: linear-gradient(60deg, var(--primary-color) 0%, var(--primary-darker-color) 100%);
+    border-radius: .5rem;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+}
+
+#header #logo {
+    height: 45px;
+    width: auto;
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+
+#header ul {
+    display: flex;
+}
+
+#header ul li a {
+    padding: .5rem .75rem;
+    border-radius: .25rem;
+    font-weight: bold;
+    font-size: .875rem;
+    color: var(--text-color);
+    transition: background-color .2s;
+}
+
+#header ul li a:hover,
+#header ul li a:focus,
+#header ul li a:active {
+    background-color: var(--primary-darker-color);
+}
+

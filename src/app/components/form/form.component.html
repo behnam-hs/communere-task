@@ -1,0 +1,59 @@
+<div class="main-page-container">
+    <form [formGroup]="addLocationForm" (ngSubmit)="onSubmit(addLocationForm)">
+        <div class="form-field">
+            <label for="name">Location name: </label>
+            <input id="name" type="text" placeholder="Name the location on the map" formControlName="name">
+        </div>
+        <div class="validation-texts-wrapper">
+            <p *ngIf="name?.dirty && name?.errors?.['required']">this field is required !</p>
+        </div>
+
+        <div class="form-field">
+            <label for="location-type">Location type:</label>
+            <select id="location-type" formControlName="type">
+                <option value="store" selected>Store</option>
+                <option value="company">Company</option>
+                <option value="street">Street</option>
+            </select>
+        </div>
+        <div class="validation-texts-wrapper">
+            <p *ngIf="type?.dirty && type?.errors?.['required']">Please select one of the options above as a location
+                type</p>
+        </div>
+
+        <div class="validation-texts-wrapper">
+            <p *ngIf="!onMap?.value && addLocationForm.dirty">Please choose a location to add.</p>
+        </div>
+
+        <div class="form-field" style="align-items: flex-start; flex-direction: row-reverse;">
+            <!-- <label for="logo">Logo:</label> -->
+            <label class="file-input btn" for="logo-field">Upload Photo +</label>
+
+
+            <input id="logo-field" type="file" style="display: none;" formControlName="logo"
+                (change)="parseFile($event)">
+
+            <div style="display: flex; align-items: center; width: 50%;">
+                <img [src]="location.image.base64" *ngIf="location.image" height="48">
+                <span style="margin-left: 16px; color: white;">{{ location.image.name }}</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="validation-texts-wrapper">
+                <p *ngIf="successfullyAdded && !itemInEditId" style="color: green !important;">Location successfully added to map.</p>
+                <p *ngIf="successfullyEdited && itemInEditId" style="color: green !important;">Location details successfully updated.</p>
+            </div>
+            <button class="button submit-button" type="submit" [disabled]="addLocationForm.invalid">
+                {{ !itemInEditId ? 'Add Location' : 'Apply Changes' }}
+            </button>
+        </div>
+    </form>
+
+    <div style="width: 60%; min-height: 400px; position: relative;">
+        <app-map (onEdit)="onEdit($event)"
+                 (onSetMarker)="setMarker($event)" 
+                 [defaultLocation]="location">
+        </app-map>
+    </div>
+</div>

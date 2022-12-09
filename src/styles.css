@@ -1,0 +1,82 @@
+:root {
+    --text-color: #fff;
+    --primary-color: #0074a6;
+    --primary-darker-color: #2a688b;
+    --secondary-color: ;
+    --success-color: #119952;
+    --background-color: #23272F;
+    --border-color: #e5e7eb1f;
+    --border-color-focused: rgb(246 247 249);
+    --warning-color: crimson;
+    --input-bg-color: #313641;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+li, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input[type='text'], select {
+    background-color: var(--input-bg-color);
+}
+
+button, .btn {
+    cursor: pointer;
+    font-weight: bold;
+    padding: .5rem .75rem;
+    border-radius: 4px;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    transition: all .25s;
+    font-size: .875rem;
+    user-select: none;
+}
+
+button:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+button:hover, button:focus {
+    opacity: .8;
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+.container {
+    max-width: 1920px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* leaflet popup customization */
+
+.leaflet-popup-content-wrapper {
+    padding: 0 !important;
+}
+.leaflet-popup-content {
+    margin: 0;
+}
+.leaflet-container a.leaflet-popup-close-button {
+    color: var(--text-color);
+    top: .875rem;
+    right: .5rem;
+}
