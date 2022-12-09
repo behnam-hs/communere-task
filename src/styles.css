@@ -11,12 +11,25 @@
     --input-bg-color: #313641;
 }
 
+@font-face {
+    font-family: 'ubuntu';
+    src: url(./assets/fonts/Ubuntu-Regular.ttf) format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'ubuntu';
+    src: url(./assets/fonts/Ubuntu-Bold.ttf) format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
+
 * {
     margin: 0;
     padding: 0;
     border: none;
     outline: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'ubuntu', Arial, Helvetica, sans-serif;
 }
 
 body {

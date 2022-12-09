@@ -13,12 +13,22 @@
     position: relative;
 }
 
+.map-wrapper {
+    position: relative;
+    min-height: 400px; 
+    width: 60%; 
+}
+
 .validation-texts-wrapper p {
     color: var(--warning-color);
     font-size: .75rem;
     text-align: right;
     margin-top: -1rem;
     margin-bottom: .25rem;
+}
+
+.success-validation-text {
+    color: var(--success-color) !important;
 }
 
 form {
@@ -64,4 +74,19 @@ form {
     padding: 1rem;
     text-align: center;
 }
+
+.photo-flex-wrapper {
+    display: flex; 
+    align-items: center;
+    gap: .5rem;
+    color: var(--text-color); 
+    width: 50%;
+}
+
+.white-text {
+    font-size: .875rem;
+    color: var(--text-color);
+}
+
+
 

@@ -17,15 +17,16 @@
             </select>
         </div>
         <div class="validation-texts-wrapper">
-            <p *ngIf="type?.dirty && type?.errors?.['required']">Please select one of the options above as a location
-                type</p>
+            <p *ngIf="type?.dirty && type?.errors?.['required']">Please select one of the options above as a location type</p>
         </div>
 
-        <div class="validation-texts-wrapper">
-            <p *ngIf="!onMap?.value && addLocationForm.dirty">Please choose a location to add.</p>
+        <div class="form-field">
+            <label for="letlng">Locations LetLng:</label>
+            <p class="white-text" *ngIf="(!onMap?.value && addLocationForm.dirty)">You didn't add a location on the map yet!</p>
+            <p class="white-text" *ngIf="onMap?.value"> {{ location.location }} </p>
         </div>
 
-        <div class="form-field" style="align-items: flex-start; flex-direction: row-reverse;">
+        <div class="form-field" style="flex-direction: row-reverse;">
             <!-- <label for="logo">Logo:</label> -->
             <label class="file-input btn" for="logo-field">Upload Photo +</label>
 
@@ -33,16 +34,16 @@
             <input id="logo-field" type="file" style="display: none;" formControlName="logo"
                 (change)="parseFile($event)">
 
-            <div style="display: flex; align-items: center; width: 50%;">
+            <div class="photo-flex-wrapper">
                 <img [src]="location.image.base64" *ngIf="location.image" height="48">
-                <span style="margin-left: 16px; color: white;">{{ location.image.name }}</span>
+                <span class="white-text">{{ location.image.name }}</span>
             </div>
         </div>
 
         <div>
             <div class="validation-texts-wrapper">
-                <p *ngIf="successfullyAdded && !itemInEditId" style="color: green !important;">Location successfully added to map.</p>
-                <p *ngIf="successfullyEdited && itemInEditId" style="color: green !important;">Location details successfully updated.</p>
+                <p *ngIf="successfullyAdded && !itemInEditId" class="success-validation-text">Location successfully added to map.</p>
+                <p *ngIf="successfullyEdited && itemInEditId" class="success-validation-text">Location details successfully updated.</p>
             </div>
             <button class="button submit-button" type="submit" [disabled]="addLocationForm.invalid">
                 {{ !itemInEditId ? 'Add Location' : 'Apply Changes' }}
@@ -50,7 +51,7 @@
         </div>
     </form>
 
-    <div style="width: 60%; min-height: 400px; position: relative;">
+    <div class="map-wrapper">
         <app-map (onEdit)="onEdit($event)"
                  (onSetMarker)="setMarker($event)" 
                  [defaultLocation]="location">
