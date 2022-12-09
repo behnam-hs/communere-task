@@ -21,9 +21,9 @@
         </div>
 
         <div class="form-field">
-            <label for="letlng">Locations LetLng:</label>
+            <label for="latlng">Locations latlng:</label>
             <p class="white-text" *ngIf="(!onMap?.value && addLocationForm.dirty)">You didn't add a location on the map yet!</p>
-            <p class="white-text" *ngIf="onMap?.value"> {{ location.location }} </p>
+            <p class="white-text" *ngIf="onMap?.value"> {{ location.location[0] | number }}, {{ location.location[1] | number }} </p>
         </div>
 
         <div class="form-field" style="flex-direction: row-reverse;">

@@ -57,6 +57,9 @@ form {
     width: 50%;
 }
 
+/* .form-field input:focus, .form-field select:focus {
+    border-color: var(--border-color-focused);
+} */
 
 .form-field label {
     color: var(--text-color);

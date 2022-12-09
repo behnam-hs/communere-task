@@ -45,6 +45,10 @@
 
 /* map popup styles */
 
+.popup-wrapper {
+    min-width: 256px;
+}
+
 .popup-header {
     padding: 1rem;
     background-color: var(--primary-color);

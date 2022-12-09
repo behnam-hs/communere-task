@@ -23,8 +23,8 @@ export class PopupService {
         const popupDetail1 = document.createElement('span');
         const popupDetail2 = document.createElement('span');
         popupDetails.className = 'popup-details'
-        popupDetail1.textContent = location.type;
-        popupDetail2.textContent = location.location.toString();
+        popupDetail1.textContent = `Type: ${location.type}`;
+        popupDetail2.textContent = `LatLng: ${location.location[0].toFixed(3)}, ${location.location[1].toFixed(3)}`;
         popupDetails.append(popupDetail1, popupDetail2);
         
         const popupEditButton = document.createElement('a');

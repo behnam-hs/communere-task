@@ -4,7 +4,7 @@
             <img class="location-image" [src]="location.image.base64 || './assets/images/default-image.svg'" alt="">
             <span>{{ location.name }}</span>
             <p>Type<span>{{ location.type }}</span></p>
-            <p>Location's LetLng:<span>{{ location.location }}</span></p>
+            <p>Location's latlng:<span>{{ location.location[0] | number }}, {{ location.location[1] | number }}</span></p>
         </div>
 
         <div>
@@ -23,6 +23,6 @@
 </app-list-paginator>
 
 <ng-template #noLocation>
-    <p class="no-location-text">You did'nt add a location yet!</p>
+    <p class="no-location-text">No locations added yet!</p>
 </ng-template>
 

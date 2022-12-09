@@ -19,7 +19,7 @@ export class LocationsListComponent implements OnInit {
               private router: Router) {}
   
   ngOnInit(): void {
-    this.totalPages = Math.ceil(this.ds.allLocations.length / this.perPage);
+    this.countTotalPages();
     this.route.queryParams.subscribe(params => {
       this.currentPage = Number(params?.['page']) || 1;
       this.navigateToPage(this.currentPage);
@@ -30,6 +30,10 @@ export class LocationsListComponent implements OnInit {
     this.router.navigate(['/locations'], {queryParams: {page: pageNumber}})
     this.locations = this.ds.paginate(pageNumber, this.perPage);
   } 
+
+  countTotalPages() {
+    this.totalPages = Math.ceil(this.ds.allLocations.length / this.perPage);
+  }
 
   next() {
     this.currentPage += 1;
@@ -44,6 +48,12 @@ export class LocationsListComponent implements OnInit {
   removeLocation(id: number) {
     this.ds.delete(id);
     this.locations = this.ds.paginate(this.currentPage);
+    this.countTotalPages();
+
+    if(this.currentPage > this.totalPages) {
+      this.currentPage -= 1;
+      this.navigateToPage(this.currentPage)
+    }
   }
 
 

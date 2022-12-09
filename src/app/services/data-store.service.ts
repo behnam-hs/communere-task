@@ -22,7 +22,7 @@ export class DataStoreService {
 
   create(location: Omit<Location, 'id'>) {
     this.lastItemId += 1;
-    this.allLocations.push({ 
+    this.allLocations.unshift({ 
       id: this.lastItemId, 
       ...location 
     });
